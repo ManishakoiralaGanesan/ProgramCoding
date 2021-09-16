@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <script>
+        function myfunction() {
+            let num = parseInt(document.getElementById("num1").value)
+            let arr = []
+            for (let index = 1; index <= num; index++) {
+                if (index % 5 == 0 && index % 3 == 0) {
+                    document.write("pong<br>")
+                }
+                else if (index % 5 == 0) {
+                    document.write("pong<br>")
+                }
+                else if (index % 3 == 0) {
+                    document.write("ping<br>")
+                }
+                else {
+                    document.write(index.toString() + "<br>")
+                }
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>Ping Pong</p>
+    <input type="text" id="num1" name="num1" placeholder="Enter the Number">
+    <input type="button" value="submit" onclick="myfunction()"></button>
+    <p>result:</p>
+    <p id="result"></p> <br>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script>
+        function myfunction() {
+            let num1 = parseInt(document.getElementById("year").value);
+            if (num1 % 400 == 0) {
+                document.getElementById("result").innerHTML = "condition1 Leap Year"
+            }
+            else if (num1 % 100 == 0) {
+                document.getElementById("result").innerHTML = "Condition3 Not Leap year"
+            }
+            else if (num1 % 4 == 0) {
+                document.getElementById("result").innerHTML = "condition2 Leap Year"
+            }
+
+            else {
+                document.getElementById("result").innerHTML = "Condition3 Not Leap year"
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>Leap Year</p>
+    <input type="text" id="year" name="year" placeholder="Enter the year">
+    <input type="button" value="submit" onclick="myfunction()"></button>
+    <p>result:</p>
+    <p id="result"></p>
+</body>
+
+</html>
