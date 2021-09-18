@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script>
+        function myFunction() {
+            let weight = parseInt(document.getElementById("weight").value)
+            let height = parseInt(document.getElementById("height").value)
+            height /= 100;
+            height *= height
+            let bmi = weight / height
+            console.log(bmi);
+            document.getElementById("result").innerHTML = bmi.toFixed(2)
+        }
+    </script>
+</head>
+
+<body>
+    <h2>BMI</h2>
+    <input type="text" id="weight" placeholder="Enter Your Weight">
+    <input type="text" id="height" placeholder="Enter Your Height">
+    <input type="button" onclick="myFunction()" name="submit" value="submit">
+
+    <p>output:</p>
+    <p id="result"></p>
+</body>
+
+</html>

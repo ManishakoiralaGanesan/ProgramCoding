@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script>
+        var array = []
+        function myFunction() {
+            let principal = 15000
+            let rate = 10 //%annual
+            let duration = 12 //m
+
+            let monthly_rate = rate / 12
+            monthly_rate /= 100
+            monthly_rate = monthly_rate.toFixed(5) // rate per month
+            console.log(monthly_rate);
+            let pow = 1 + parseFloat(monthly_rate)
+            pow = Math.pow(pow, duration).toFixed(4)
+            console.log(pow);
+
+            let interstrate = principal * monthly_rate * pow
+            interstrate = interstrate / (pow - 1)
+            interstrate = interstrate.toFixed(1)
+            console.log(interstrate)
+            //p * r(1 + r) ^ n / (1 + r) ^ n - 1
+
+            let totCost = interstrate * duration
+            console.log(Math.round(totCost));
+
+            document.getElementById("principal").innerHTML = "PRINCIPAL = " + principal
+            document.getElementById("loanEmi").innerHTML = "LOAN EMI = " + Math.round(interstrate)//monthly 
+            document.getElementById("totInterst").innerHTML = "TOTAL INTEREST = " + Math.round(totCost - principal)//totinterst 12months
+            document.getElementById("totpay").innerHTML = "TOTAL  = " + Math.round(totCost)//total payment 12month
+            monthlyIntrest(monthly_rate, principal, interstrate)
+
+        }
+        function monthlyIntrest(rate, amount, intrest) {
+            let monthPricipalAmount = Math.round(intrest) - Math.round(rate * amount);
+            let emiData = {
+                monthInterestRate: rate,
+                monthInterest: Math.round(rate * amount),
+                monthPricipal: monthPricipalAmount,
+                closingBalance: amount - monthPricipalAmount
+            }
+            array.push(emiData);
+            console.log("Monthly rate", emiData.monthInterestRate, "opening balance", amount);
+            console.log("intreset amount for principal", emiData.monthInterest);
+            console.log("monthly principal", emiData.monthPricipal, "closing balance", emiData.closingBalance);
+            console.log(array);
+        }
+
+    </script>
+</head>
+
+<body onload=" myFunction()">
+
+    <h1>EMI</h1>
+    <p id="principal"></p>
+    <p id="loanEmi"></p>
+    <p id="totInterst"></p>
+    <p id="totpay"></p>
+</body>
+
+</html>

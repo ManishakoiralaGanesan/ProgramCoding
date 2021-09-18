@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <style>
+        #table {
+            border: 1px solid black;
+            width: 100px;
+            border-collapse: collapse;
+        }
+
+        td,
+        tr {
+            width: 50px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            let row = 3
+            let col = 3
+            let table = document.getElementById("table")
+
+            for (let index = 0; index < row; index++) {
+                let row = table.insertRow(index)
+                for (let j = 0; j < col; j++) {
+                    let cell = row.insertCell(j)
+                    cell.innerHTML = "X"
+
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="myFunction()">
+    <table id="table">
+
+    </table>
+</body>
+
+</html>

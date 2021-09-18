@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script>
+        function myFunction() {
+            let distance = parseInt(document.getElementById("distance").value) //kms;
+            let starttime = parseInt(document.getElementById("starttime").value) //hrs;
+            let endtime = parseInt(document.getElementById("endTime").value) //hrs;
+            let time = endtime - starttime;
+            distance *= 1000
+            time *= 3600 // conert seconds
+            let speed = distance / time
+            document.getElementById("result").innerHTML = speed.toFixed(3)
+            console.log(speed + "m/s");
+        }
+        myFunction()
+    </script>
+</head>
+
+<body>
+    <h2>Fahrenheit To celcius</h2>
+    <input type="text" id="distance" placeholder="Enter the distance (kms)">
+    <input type="text" id="starttime" placeholder="starttime">
+    <input type="text" id="endTime" placeholder="End time">
+    <input type="button" onclick="myFunction()" name="submit" value="submit">
+
+    <p>output:</p>
+    <p id="result"></p>
+</body>
+
+</html>

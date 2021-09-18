@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <script>
+        function myFunction() {
+            let num1 = parseInt(document.getElementById("num").value)
+            let celcius = ((num1 - 32) * 5) / 9
+            console.log(celcius);
+            document.getElementById("result").innerHTML = Math.round(celcius)
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Fahrenheit To celcius</h2>
+    <input type="text" id="num" placeholder="Enter the temparature in Fahrenheit(F)">
+    <input type="button" onclick="myFunction()" name="submit" value="submit">
+
+    <p>output:</p>
+    <p id="result"></p>
+</body>
+
+</html>

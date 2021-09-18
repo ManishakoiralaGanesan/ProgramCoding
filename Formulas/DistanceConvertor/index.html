@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <script>
+        function myFunction() {
+            let num1 = parseInt(document.getElementById("num").value)
+            let convertCm = num1 * 100
+            console.log(convertCm);
+            document.getElementById("result").innerHTML = convertCm + "cm"
+        }
+    </script>
+</head>
+
+<body>
+    <h2>CM to M</h2>
+    <input type="text" id="num" placeholder="Enter the number in meter(m)">
+    <input type="button" onclick="myFunction()" name="submit" value="submit">
+
+    <p>output:</p>
+    <p id="result"></p>
+</body>
+
+</html>

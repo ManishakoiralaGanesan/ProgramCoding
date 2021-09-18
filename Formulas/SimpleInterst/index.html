@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script>
+        function myFunction() {
+            let principal = parseInt(document.getElementById("principal").value)
+            let time = parseInt(document.getElementById("time").value)
+            let rate = parseInt(document.getElementById("rate").value)
+            let si = (principal * time * rate) / 100;
+            console.log(si);
+            document.getElementById("result").innerHTML = si
+        }
+    </script>
+</head>
+
+<body>
+    <h2>simpleInterst</h2>
+    <input type="text" id="principal" placeholder="Enter amount of principal"><br>
+    <input type="text" id="time" placeholder="Number of years"><br>
+    <input type="text" id="rate" placeholder="Enter interest rate"><br>
+
+    <input type="button" onclick="myFunction()" name="submit" value="submit">
+    <p>output</p>
+    <p id="result"></p>
+</body>
+
+</html>
