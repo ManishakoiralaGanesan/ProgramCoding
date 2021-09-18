@@ -7,28 +7,54 @@
 </head>
 
 <body>
-    <h1 id="text">Player1 turn</h1><br><br>
-    <input type="radio" name="player" id="player1" value="player1" checked disabled>Player1
-    <input type="radio" name="player" id="player2" value="player2" disabled>Player2
-    <br><br><br>
-    <div>
-        <input type="text" id="box1" onclick="myfunction(1)">
-        <input type="text" id="box2" onclick="myfunction(2)">
-        <input type="text" id="box3" onclick="myfunction(3)"><br>
-    </div>
-    <div>
-        <input type="text" id="box4" onclick="myfunction(4)  ">
-        <input type="text" id="box5" onclick="myfunction(5)">
-        <input type="text" id="box6" onclick="myfunction(6) "><br>
-    </div>
-    <div>
-        <input type="text" id="box7" onclick="myfunction(7)">
-        <input type="text" id="box8" onclick="myfunction(8)">
-        <input type="text" id="box9" onclick="myfunction(9) ">
-    </div>
-    <input type="button" name="reset " value="reset" onclick="reset()">
-    <h1 id="result"></h1>
+    <h1>Tik Tak Toe</h1>
+    <div class="container">
+        <br>
+        <h3>LEVEL : <span id="level">0</span></h3>
+        <div class="score_board">
+            <p>Scores:</p>
 
+            <p>Player1: <span id="score1">0</span> </p>
+
+            <p>Player2: <span id="score2">0</span> </p>
+        </div>
+
+
+        <div>
+
+            <div class="game_board">
+
+                <input type="radio" name="player" id="player1" value="player1" checked disabled> <label
+                    for="player">Player1</label>
+
+                <input type="radio" name="player" id="player2" value="player2" disabled><label
+                    for="player">Player2</label>
+                <h1 id="text">Player1 turn</h1><br><br>
+
+                <div>
+                    <input type="text" id="box1" onclick="myfunction(1)">
+                    <input type="text" id="box2" onclick="myfunction(2)">
+                    <input type="text" id="box3" onclick="myfunction(3)"><br>
+                </div>
+                <div>
+                    <input type="text" id="box4" onclick="myfunction(4)  ">
+                    <input type="text" id="box5" onclick="myfunction(5)">
+                    <input type="text" id="box6" onclick="myfunction(6) "><br>
+                </div>
+                <div>
+                    <input type="text" id="box7" onclick="myfunction(7)">
+                    <input type="text" id="box8" onclick="myfunction(8)">
+                    <input type="text" id="box9" onclick="myfunction(9) ">
+                </div>
+            </div>
+            <div>
+                <input type="button" name="reset " value="reset" id="reset" onclick="reset()">
+            </div>
+
+
+        </div>
+
+    </div>
 </body>
 
 </html>

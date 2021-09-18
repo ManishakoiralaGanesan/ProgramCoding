@@ -1,4 +1,46 @@
-#box1,
+body {
+  margin: 20px 40;
+}
+.score_board {
+  margin-left: 20px;
+}
+.score_board :nth-child(1) {
+  font-size: 28px;
+}
+
+.score_board :nth-child(2) {
+  color: red;
+  margin: 0px 15px;
+  font-size: 28px;
+  display: inline-block;
+}
+.score_board :nth-child(3) {
+  color: green;
+  margin: 0px 15px;
+  font-size: 28px;
+  display: inline-block;
+}
+.game_board {
+  margin: 40px;
+}
+.game_board #player1,
+#player2 {
+  margin: 40px 10px 60px 10px;
+}
+.game_board label {
+  margin: 20px;
+  font-size: 28px;
+}
+.game_board input[type="radio"] {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 10px;
+}
+.game_board input[type="text"] {
+  font-size: 28px;
+}
+.game_board #box1,
 #box2,
 #box3,
 #box4,
@@ -7,6 +49,16 @@
 #box7,
 #box8,
 #box9 {
-  width: 60px;
+  width: 80px;
+  height: 80px;
   padding: 20px;
+}
+#reset {
+  border: none;
+  width: 16%;
+  margin: 30px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: hotpink;
+  color: white;
 }

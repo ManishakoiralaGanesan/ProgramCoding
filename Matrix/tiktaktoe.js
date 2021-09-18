@@ -1,33 +1,49 @@
 var value;
-
+var score1 = 0;
+var score2 = 0;
+var level = 1;
 function myfunction(num) {
   let isChecked;
+  let color;
   if (document.getElementById("player1").checked) {
     value = "X";
+    color = "blue";
     isChecked = 0;
   }
   if (document.getElementById("player2").checked) {
     value = "O";
+    color = "brown";
     isChecked = 1;
   }
 
   document.getElementById("box" + num).value = value;
+  document.getElementById("box" + num).style.color = color;
   document.getElementById("box" + num).disabled = true;
+  document.getElementById("level").innerHTML = level;
 
   playerChange(isChecked);
   gameResult();
+  document.getElementById("score1").innerHTML = score1.toString();
+  document.getElementById("score2").innerHTML = score2.toString();
 }
 function gameResult() {
   let checked = checkFunction();
   console.log(checked);
   if (checked.status == true) {
+    diableBoxes();
     if (checked.value == "X") {
       document.getElementById("result").innerHTML = "Player1 Win";
-    } else {
+      score1 += 1;
+    } else if (checked.value == "O") {
       document.getElementById("result").innerHTML = "Player2 Win";
+      score2 += 1;
+    } else if (checked.value == "tieUp") {
+      document.getElementById("result").innerHTML = "Tie Up";
+      score1 += 1;
+      score2 += 1;
     }
+    level += 1;
   }
-  document.getElementById("text").innerHTML = "";
 }
 function playerChange(isChecked) {
   if (isChecked == 1) {
@@ -49,6 +65,17 @@ function reset() {
   document.getElementById("box8").value = "";
   document.getElementById("box9").value = "";
   enableBoxes();
+}
+function diableBoxes() {
+  document.getElementById("box1").disabled = true;
+  document.getElementById("box2").disabled = true;
+  document.getElementById("box3").disabled = true; // 1,2,3 4,5,6  7,8,9 //1,4,7 2,5,8 3,6,9
+  document.getElementById("box4").disabled = true;
+  document.getElementById("box5").disabled = true;
+  document.getElementById("box6").disabled = true;
+  document.getElementById("box7").disabled = true;
+  document.getElementById("box8").disabled = true;
+  document.getElementById("box9").disabled = true;
 }
 function enableBoxes() {
   document.getElementById("box1").disabled = false;
@@ -134,6 +161,6 @@ function checkFunction() {
     box8 != "" &&
     box9 != ""
   ) {
-    document.getElementById("result").innerHTML = "Tie Up";
+    return { status: true, value: "tieUp" };
   }
 }
