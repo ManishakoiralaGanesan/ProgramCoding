@@ -9,7 +9,7 @@ function monthlyInterestRate(rate) {
   //p * r(1 + r) ^ n / (1 + r) ^ n - 1
   let monthly_rate = rate / 12;
   monthly_rate /= 100;
-  monthly_rate = monthly_rate.toFixed(4);
+  monthly_rate = monthly_rate;
   return monthly_rate;
 }
 function calculateMonthlyEmi(principal, rate, duration) {
@@ -17,13 +17,17 @@ function calculateMonthlyEmi(principal, rate, duration) {
   console.log(monthlyRate);
 
   let pow = 1 + parseFloat(monthlyRate); // 1+r
-  pow = Math.pow(pow, duration).toFixed(4); // (1+r)^n
+  pow = Math.pow(pow, duration); // (1+r)^n
   console.log("pow", pow);
 
   let interstrate = principal * monthlyRate * pow; // formula p*r*(1+r)^n
-  interstrate = interstrate / (pow - 1); // p*r*(1+r)^n/(1+r)^n -1
-  interstrate = Math.round(interstrate);
-  console.log(interstrate); //monthly Emi
+  interstrate = interstrate;
+
+  let minusOne = pow - 1;
+  minusOne = minusOne;
+
+  interstrate = interstrate / minusOne; // p*r*(1+r)^n/(1+r)^n -1
+  interstrate = interstrate;
 
   let totCost = totalAmount(interstrate, duration);
   let totInterst = totalInterest(totCost, principal);
@@ -32,22 +36,22 @@ function calculateMonthlyEmi(principal, rate, duration) {
 }
 
 function totalInterest(totCost, principal) {
-  return Math.round(totCost - principal);
+  return totCost - principal;
 }
 function totalAmount(interstrate, duration) {
   let totCost = interstrate * duration;
-  totCost = Math.round(totCost);
+  totCost = totCost;
   console.log(totCost);
   return totCost;
 }
 function printDetails(principal, interstrate, totInterst, totCost) {
   document.getElementById("principal").innerHTML = "PRINCIPAL = " + principal;
   document.getElementById("loanEmi").innerHTML =
-    "LOAN EMI = " + Math.round(interstrate); //monthly
+    "LOAN EMI = " + Math.floor(interstrate); //monthly
   document.getElementById("totInterst").innerHTML =
-    "TOTAL INTEREST = " + totInterst; //totinterst 12months
+    "TOTAL INTEREST = " + Math.floor(totInterst); //totinterst 12months
   document.getElementById("totpay").innerHTML =
-    "TOTAL  = " + Math.round(totCost); //total payment 12month
+    "TOTAL  = " + Math.floor(totCost); //total payment 12month
 }
 function monthlyIntrest(principal, rate, emi, duration) {
   let openingBalance = principal;
@@ -57,9 +61,9 @@ function monthlyIntrest(principal, rate, emi, duration) {
   for (let index = 0; index < duration; index++) {
     let simpleInterest = calSimpleInterest(closingBalance, rate);
     simpleInterest = Math.round(simpleInterest);
-    emi = Math.round(emi);
+    emi = Math.floor(emi);
     let principalEmi = emi - simpleInterest;
-    principalEmi = Math.round(principalEmi);
+    principalEmi = principalEmi;
     closingBalance -= principalEmi;
     console.log(
       openingBalance,
@@ -81,7 +85,7 @@ function monthlyIntrest(principal, rate, emi, duration) {
   createEmiTable();
 }
 function calSimpleInterest(principal, rate) {
-  let interest = principal * parseFloat(rate);
+  let interest = principal * rate;
   return interest;
 }
 function createEmiTable() {
