@@ -1,0 +1,33 @@
+.container {
+  width: 40%;
+
+  border: 1px solid grey;
+  margin: auto;
+  padding: 10px;
+}
+#heading {
+  text-align: center;
+}
+.row h2 {
+  font-size: 23px;
+}
+.row1 .col1 {
+  display: inline-block;
+}
+.row1 .col2 {
+  display: inline-block;
+  margin-left: 40px;
+}
+img {
+  width: 200px;
+}
+table {
+  width: 80%;
+  margin-left: 25px;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 20px;
+}

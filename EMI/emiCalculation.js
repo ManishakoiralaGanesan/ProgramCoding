@@ -1,6 +1,9 @@
 var array = [];
 
-function myFunction(principal, rate, duration) {
+function myFunction() {
+  let principal = document.getElementById("principal").value;
+  let rate = document.getElementById("rate").value;
+  let duration = document.getElementById("duration").value;
   let emi = calculateMonthlyEmi(principal, rate, duration);
   let monthly_rate = monthlyInterestRate(rate);
   monthlyIntrest(principal, monthly_rate, emi, duration);
@@ -15,7 +18,6 @@ function monthlyInterestRate(rate) {
 function calculateMonthlyEmi(principal, rate, duration) {
   let monthlyRate = monthlyInterestRate(rate);
   console.log(monthlyRate);
-
   let pow = 1 + parseFloat(monthlyRate); // 1+r
   pow = Math.pow(pow, duration); // (1+r)^n
   console.log("pow", pow);
@@ -56,6 +58,7 @@ function printDetails(principal, interstrate, totInterst, totCost) {
 function monthlyIntrest(principal, rate, emi, duration) {
   let openingBalance = principal;
   let closingBalance = openingBalance;
+
   let emiDetails;
   console.log(duration);
   for (let index = 0; index < duration; index++) {
@@ -65,6 +68,7 @@ function monthlyIntrest(principal, rate, emi, duration) {
     let principalEmi = emi - simpleInterest;
     principalEmi = principalEmi;
     closingBalance -= principalEmi;
+
     console.log(
       openingBalance,
       principalEmi,
@@ -80,6 +84,7 @@ function monthlyIntrest(principal, rate, emi, duration) {
       closingBalance,
     };
     array.push(emiDetails);
+    openingBalance = closingBalance;
   }
 
   createEmiTable();
