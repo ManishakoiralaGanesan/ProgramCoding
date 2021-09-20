@@ -19,7 +19,7 @@ function myfunction(num) {
   document.getElementById("box" + num).value = value;
   document.getElementById("box" + num).style.color = color;
   document.getElementById("box" + num).disabled = true;
-  document.getElementById("level").innerHTML = level;
+  document.getElementById("level").innerHTML = level.toString();
 
   playerChange(isChecked);
   gameResult();
@@ -42,6 +42,7 @@ function gameResult() {
       score1 += 1;
       score2 += 1;
     }
+    document.getElementById("result").style.display = "block";
     level += 1;
   }
 }
@@ -64,6 +65,7 @@ function reset() {
   document.getElementById("box7").value = "";
   document.getElementById("box8").value = "";
   document.getElementById("box9").value = "";
+  document.getElementById("result").style.display = "none";
   enableBoxes();
 }
 function diableBoxes() {
@@ -89,6 +91,7 @@ function enableBoxes() {
   document.getElementById("box9").disabled = false;
 }
 function checkFunction() {
+  let result;
   let box1 = document.getElementById("box1").value;
   let box2 = document.getElementById("box2").value;
   let box3 = document.getElementById("box3").value; // 1,2,3 4,5,6  7,8,9 //1,4,7 2,5,8 3,6,9
@@ -101,52 +104,51 @@ function checkFunction() {
   //array = [[box1, box2, box3], [box4, box5, box6], [box7, box8, box9]]
   if (box1 != "" && box2 != "" && box3 != "") {
     if (box1 == box2 && box2 == box3 && box1 == box3) {
-      console.log({ status: true, value: box1 });
-      return { status: true, value: box1 };
+      result = { status: true, value: box1 };
+      result;
     }
   }
   if (box4 != "" && box5 != "" && box6 != "") {
     if (box4 == box5 && box5 == box6 && box4 == box6) {
       console.log("true 2");
-
-      return { status: true, value: box4 };
+      result = { status: true, value: box4 };
     }
   }
   if (box7 != "" && box8 != "" && box9 != "") {
     if (box7 == box8 && box7 == box9 && box8 == box9) {
       console.log("true 3");
-      return { status: true, value: box7 };
+      result = { status: true, value: box7 };
     }
   }
   if (box1 != "" && box4 != "" && box7 != "") {
     if (box1 == box4 && box7 == box4 && box1 == box7) {
       console.log("true 4");
 
-      return { status: true, value: box1 };
+      result = { status: true, value: box1 };
     }
   }
   if (box2 != "" && box5 != "" && box8 != "") {
     if (box2 == box5 && box8 == box5 && box2 == box8) {
       console.log("true 5");
-      return { status: true, value: box2 };
+      result = { status: true, value: box2 };
     }
   }
   if (box3 != "" && box6 != "" && box9 != "") {
     if (box3 == box6 && box9 == box6 && box3 == box9) {
       console.log("true 6");
-      return { status: true, value: box3 };
+      result = { status: true, value: box3 };
     }
   }
   if (box1 != "" && box5 != "" && box9 != "") {
     if (box1 == box5 && box5 == box9 && box1 == box9) {
       console.log("true 8");
-      return { status: true, value: box1 };
+      result = { status: true, value: box1 };
     }
   }
   if (box3 != "" && box5 != "" && box7 != "") {
     if (box3 == box5 && box7 == box5 && box3 == box7) {
       console.log("true 9");
-      return { status: true, value: box3 };
+      result = { status: true, value: box3 };
     }
   }
 
@@ -161,6 +163,18 @@ function checkFunction() {
     box8 != "" &&
     box9 != ""
   ) {
-    return { status: true, value: "tieUp" };
+    if (
+      !(box1 == box2 && box2 == box3 && box1 == box3) &&
+      !(box4 == box5 && box5 == box6 && box4 == box6) &&
+      !(box7 == box8 && box7 == box9 && box8 == box9) &&
+      !(box1 == box4 && box7 == box4 && box1 == box7) &&
+      !(box2 == box5 && box8 == box5 && box2 == box8) &&
+      !(box3 == box6 && box9 == box6 && box3 == box9) &&
+      !(box1 == box5 && box5 == box9 && box1 == box9) &&
+      !(box3 == box5 && box7 == box5 && box3 == box7)
+    )
+      result = { status: true, value: "tieUp" };
   }
+  console.log(!(box1 == box2 && box2 == box3 && box1 == box3));
+  return result;
 }

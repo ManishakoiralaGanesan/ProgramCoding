@@ -1,6 +1,4 @@
-var array = [];
-
-function myFunction() {
+function emiCalculator() {
   let principal = document.getElementById("principal").value;
   let rate = document.getElementById("rate").value;
   let duration = document.getElementById("duration").value;
@@ -58,7 +56,7 @@ function printDetails(principal, interstrate, totInterst, totCost) {
 function monthlyIntrest(principal, rate, emi, duration) {
   let openingBalance = principal;
   let closingBalance = openingBalance;
-
+  let array = [];
   let emiDetails;
   console.log(duration);
   for (let index = 0; index < duration; index++) {
@@ -87,13 +85,13 @@ function monthlyIntrest(principal, rate, emi, duration) {
     openingBalance = closingBalance;
   }
 
-  createEmiTable();
+  createEmiTable(array);
 }
 function calSimpleInterest(principal, rate) {
   let interest = principal * rate;
   return interest;
 }
-function createEmiTable() {
+function createEmiTable(array) {
   console.log(array);
   let table = document.getElementById("emiTable");
   let th = document.getElementsByTagName("th").length;

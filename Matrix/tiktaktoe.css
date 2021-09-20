@@ -62,3 +62,12 @@ body {
   background-color: hotpink;
   color: white;
 }
+#result {
+  width: 300px;
+  border: 1px solid black;
+  padding: 20px;
+  font-size: 25px;
+  background-color: green;
+  color: white;
+  display: none;
+}

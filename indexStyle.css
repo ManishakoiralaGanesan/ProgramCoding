@@ -1,0 +1,16 @@
+.contents {
+  border: 1px solid black;
+  width: 50%;
+  border-collapse: collapse;
+  margin-left: 100px;
+}
+.contents th,
+td {
+  border: 1px solid black;
+  padding: 20px;
+}
+td a {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
