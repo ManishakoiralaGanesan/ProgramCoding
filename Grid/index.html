@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --main-radius: 5px;
+            --main-padding: 10px
+        }
+
+        .grid-container {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+            grid-template-areas: "nav nav nav nav"
+                "sidebar main main main"
+                "sidebar content1 content2 content3"
+                "footer footer footer footer";
+            grid-gap: 10px;
+            text-align: center;
+        }
+
+        #navbar {
+            grid-area: nav;
+            background-color: blanchedalmond;
+            border-radius: var(--main-radius);
+            padding: var(--main-padding);
+        }
+
+        #main {
+            grid-area: main;
+            background-color: rgb(197, 124, 14);
+            border-radius: var(--main-radius);
+            padding: var(--main-padding);
+        }
+
+        #sidebar {
+            grid-area: sidebar;
+            background-color: cyan;
+            border-radius: var(--main-radius);
+            padding: var(--main-padding);
+        }
+
+        #footer {
+            grid-area: footer;
+            background-color: rgb(240, 169, 169);
+            border-radius: var(--main-radius);
+            padding: var(--main-padding);
+        }
+
+        #content1 {
+            grid-area: content1;
+            background-color: rgb(240, 169, 169);
+            border-radius: var(--main-radius);
+            padding: var(--main-padding);
+        }
+
+        #content2 {
+            background-color: rgb(240, 169, 169);
+        }
+
+        #content3 {
+            background-color: rgb(240, 169, 169);
+            border-radius: var(--main-radius);
+            padding: var(--main-padding);
+        }
+
+        @media screen and (max-width:500px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+                grid-template-areas: "nav"
+                    "main"
+                    "sidebar"
+                    "content1"
+                    "content2"
+                    "content3"
+                    "footer";
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div id="navbar">Navbar</div>
+        <div id="main">Main</div>
+        <div id="sidebar">Sidebar</div>
+        <div id="content1">Content1</div>
+        <div id="content2">Content2</div>
+        <div id="content3">Content3</div>
+        <div id="footer">Footer</div>
+    </div>
+</body>
+
+</html>
