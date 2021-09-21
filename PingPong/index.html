@@ -2,34 +2,73 @@
 
 <head>
     <script>
-        function myfunction() {
+        function pinkPong() {
             let num = parseInt(document.getElementById("num1").value)
-            let arr = []
+            let array = []
+            let result
             for (let index = 1; index <= num; index++) {
                 if (index % 5 == 0 && index % 3 == 0) {
-                    document.write("pong<br>")
+                    result = "pong"
                 }
                 else if (index % 5 == 0) {
-                    document.write("pong<br>")
+                    result = "pong"
+
                 }
                 else if (index % 3 == 0) {
-                    document.write("ping<br>")
+                    result = "ping"
+
                 }
                 else {
-                    document.write(index.toString() + "<br>")
-                }
+                    result = index.toString()
 
+                }
+                array.push(result)
+
+            }
+            console.log(array);
+            let element = document.getElementById("result")
+            let values = ""
+
+
+            for (let index = 0; index < array.length; index++) {
+                values += array[index]
+                element.textContent = values + "  "
             }
         }
     </script>
+    <style>
+        #button {
+            width: 100px;
+            padding: 5px;
+            font-size: 20px;
+            border: 1px solid grey;
+            background-color: rgb(46, 140, 247);
+            color: white;
+        }
+
+        #num1 {
+            width: 300px;
+            padding: 10px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        #result {
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <p>Ping Pong</p>
-    <input type="text" id="num1" name="num1" placeholder="Enter the Number">
-    <input type="button" value="submit" onclick="myfunction()"></button>
+    <input type="text" id="num1" name="num1" placeholder="Enter the Number"> <br><br><br>
+    <input type="button" id="button" value="submit" onclick="pinkPong()"></button>
     <p>result:</p>
     <p id="result"></p> <br>
+
+
 
 </body>
 

@@ -175,6 +175,6 @@ function checkFunction() {
     )
       result = { status: true, value: "tieUp" };
   }
-  console.log(!(box1 == box2 && box2 == box3 && box1 == box3));
+
   return result;
 }

@@ -2,7 +2,7 @@
 
 <head>
     <script>
-        function myfunction() {
+        function oddOrEven() {
             let num1 = parseInt(document.getElementById("num1").value);
             if (num1 % 2 == 0) {
                 document.getElementById("result").innerHTML = "The number is EVEN"
@@ -13,13 +13,36 @@
             }
         }
     </script>
+    <style>
+        #button {
+            width: 100px;
+            padding: 5px;
+            font-size: 20px;
+            border: 1px solid grey;
+            background-color: rgb(46, 140, 247);
+            color: white;
+        }
+
+        #num1 {
+            width: 300px;
+            padding: 10px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        #result {
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <p>Odd or Even</p>
-    <input type="text" id="num1" name="num1" placeholder="Enter the Number">
-    <input type="button" value="submit" onclick="myfunction()"></button>
-    <p>result:</p>
+    <h2>Odd or Even</h2>
+    <input type="text" id="num1" name="num1" placeholder="Enter the Number"> <br><br>
+    <input type="submit" id="button" value="submit" onclick="oddOrEven()"></button>
+    <p>Result:</p>
     <p id="result"></p>
 </body>
 
