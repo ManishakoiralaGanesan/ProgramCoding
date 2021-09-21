@@ -1,9 +1,11 @@
+var array = [];
 function emiCalculator() {
   let principal = document.getElementById("principal").value;
   let rate = document.getElementById("rate").value;
   let duration = document.getElementById("duration").value;
   let emi = calculateMonthlyEmi(principal, rate, duration);
   let monthly_rate = monthlyInterestRate(rate);
+
   monthlyIntrest(principal, monthly_rate, emi, duration);
 }
 function monthlyInterestRate(rate) {
@@ -16,7 +18,7 @@ function monthlyInterestRate(rate) {
 function calculateMonthlyEmi(principal, rate, duration) {
   let monthlyRate = monthlyInterestRate(rate);
   console.log(monthlyRate);
-  let pow = 1 + parseFloat(monthlyRate); // 1+r
+  let pow = 1 + monthlyRate; // 1+r
   pow = Math.pow(pow, duration); // (1+r)^n
   console.log("pow", pow);
 
@@ -47,22 +49,22 @@ function totalAmount(interstrate, duration) {
 function printDetails(principal, interstrate, totInterst, totCost) {
   document.getElementById("principal").innerHTML = "PRINCIPAL = " + principal;
   document.getElementById("loanEmi").innerHTML =
-    "LOAN EMI = " + Math.floor(interstrate); //monthly
+    "LOAN EMI = " + interstrate.toFixed(2); //monthly
   document.getElementById("totInterst").innerHTML =
-    "TOTAL INTEREST = " + Math.floor(totInterst); //totinterst 12months
+    "TOTAL INTEREST = " + totInterst.toFixed(2); //totinterst 12months
   document.getElementById("totpay").innerHTML =
-    "TOTAL  = " + Math.floor(totCost); //total payment 12month
+    "TOTAL  = " + totCost.toFixed(2); //total payment 12month
 }
 function monthlyIntrest(principal, rate, emi, duration) {
   let openingBalance = principal;
   let closingBalance = openingBalance;
-  let array = [];
+
   let emiDetails;
   console.log(duration);
   for (let index = 0; index < duration; index++) {
     let simpleInterest = calSimpleInterest(closingBalance, rate);
     simpleInterest = Math.round(simpleInterest);
-    emi = Math.floor(emi);
+
     let principalEmi = emi - simpleInterest;
     principalEmi = principalEmi;
     closingBalance -= principalEmi;
@@ -71,15 +73,15 @@ function monthlyIntrest(principal, rate, emi, duration) {
       openingBalance,
       principalEmi,
       simpleInterest,
-      emi,
+      Math.round(emi),
       closingBalance
     );
     emiDetails = {
       openingBalance,
-      principalEmi,
+      principalEmi: Math.round(principalEmi),
       simpleInterest,
-      emi,
-      closingBalance,
+      emi: Math.round(emi),
+      closingBalance: Math.round(closingBalance),
     };
     array.push(emiDetails);
     openingBalance = closingBalance;
