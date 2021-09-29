@@ -2,7 +2,7 @@ var value;
 var score1 = 0;
 var score2 = 0;
 var level = 1;
-function myfunction(num) {
+function tiktaktoe(num) {
   let isChecked;
   let color;
   if (document.getElementById("player1").checked) {

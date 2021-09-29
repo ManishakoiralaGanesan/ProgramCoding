@@ -2,7 +2,7 @@
 
 <head>
     <script>
-        function myfunction() {
+        function leapYear()() {
             let num1 = parseInt(document.getElementById("year").value);
             if (num1 % 400 == 0) {
                 document.getElementById("result").innerHTML = "Leap Year"
@@ -25,7 +25,7 @@
 <body>
     <p>Leap Year</p>
     <input type="text" id="year" name="year" placeholder="Enter the year">
-    <input type="button" value="submit" onclick="myfunction()"></button>
+    <input type="button" value="submit" onclick="leapYear()"></button>
     <p>result:</p>
     <p id="result"></p>
 </body>

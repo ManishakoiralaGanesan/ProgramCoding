@@ -1,0 +1,73 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+.topNav {
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  position: fixed;
+}
+h3 {
+  margin: 0px 60px;
+  margin-left: 13%;
+}
+.left,
+.right {
+  display: flex;
+  list-style: none;
+  column-gap: 20px;
+  font-size: 22px;
+}
+
+li a {
+  text-decoration: none;
+  color: black;
+}
+.right {
+  margin-left: auto;
+  margin-right: 6em;
+}
+.right .icon {
+  display: none;
+}
+.section2 {
+  width: 100%;
+  height: 700px;
+  padding-top: 150px;
+}
+.section2 .tabs {
+  margin: 0px 120px;
+}
+.section2 .tabs button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 18px;
+  margin: 20px;
+  cursor: pointer;
+}
+@media screen and (max-width: 1200px) {
+  h3 {
+    font-size: 20px;
+  }
+  .right .icon {
+    display: inline-block;
+    cursor: pointer;
+  }
+  .left {
+    position: fixed;
+    left: -100%;
+    top: 7rem;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rosybrown;
+    width: 100%;
+    align-items: center;
+    padding: 20px 0;
+  }
+  .left.active {
+    left: 0%;
+  }
+}

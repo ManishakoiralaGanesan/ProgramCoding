@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <script>
+        var array = []
+        function toDoItems() {
+            let value = document.getElementById("item").value;
+            array.push(value)
+            displayList()
+        }
+        function displayList() {
+            console.log(array);
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" name="item" id="item" placeholder="TO DO">
+    <input type="submit" name="submit" value="submit" onclick="toDoItems()">
+</body>
+
+</html>

@@ -26,13 +26,12 @@
 
             }
             console.log(array);
-            let element = document.getElementById("result")
-            let values = ""
+
+
 
 
             for (let index = 0; index < array.length; index++) {
-                values += array[index]
-                element.textContent = values + "  "
+                document.getElementById("result").innerHTML += array[index] + "<br />"
             }
         }
     </script>

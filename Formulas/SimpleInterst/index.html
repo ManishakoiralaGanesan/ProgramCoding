@@ -2,7 +2,7 @@
 
 <head>
     <script>
-        function myFunction() {
+        function simpleInterest() {
             let principal = parseInt(document.getElementById("principal").value)
             let time = parseInt(document.getElementById("time").value)
             let rate = parseInt(document.getElementById("rate").value)
@@ -19,7 +19,7 @@
     <input type="text" id="time" placeholder="Number of years"><br>
     <input type="text" id="rate" placeholder="Enter interest rate"><br>
 
-    <input type="button" onclick="myFunction()" name="submit" value="submit">
+    <input type="button" onclick="simpleInterest()" name="submit" value="submit">
     <p>output</p>
     <p id="result"></p>
 </body>

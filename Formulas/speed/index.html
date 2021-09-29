@@ -2,7 +2,7 @@
 
 <head>
     <script>
-        function myFunction() {
+        function findSpeed() {
             let distance = parseInt(document.getElementById("distance").value) //kms;
             let starttime = parseInt(document.getElementById("starttime").value) //hrs;
             let endtime = parseInt(document.getElementById("endTime").value) //hrs;
@@ -13,7 +13,7 @@
             document.getElementById("result").innerHTML = speed.toFixed(3)
             console.log(speed + "m/s");
         }
-        myFunction()
+
     </script>
 </head>
 
@@ -22,7 +22,7 @@
     <input type="text" id="distance" placeholder="Enter the distance (kms)">
     <input type="text" id="starttime" placeholder="starttime">
     <input type="text" id="endTime" placeholder="End time">
-    <input type="button" onclick="myFunction()" name="submit" value="submit">
+    <input type="button" onclick="findSpeed()" name="submit" value="submit">
 
     <p>output:</p>
     <p id="result"></p>

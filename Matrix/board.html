@@ -16,24 +16,24 @@
         }
     </style>
     <script>
-        function board() {
-            let number = document.getElementById("number").value;
-            let row = 12
-            let col = 12
+        function boardBox() {
+            let row = 3
+            let col = 3
             let table = document.getElementById("table")
 
             for (let index = 0; index < row; index++) {
                 let row = table.insertRow(index)
                 for (let j = 0; j < col; j++) {
                     let cell = row.insertCell(j)
+                    cell.innerHTML = "X"
+
                 }
             }
         }
     </script>
 </head>
 
-<body>
-    <input type="text" name="number" id="number" oninput="board()"> <br><br>
+<body onload="boardBox()">
     <table id="table">
 
     </table>
